@@ -68,8 +68,8 @@
                         <div class="col">
                             <div class="header_content d-flex flex-row align-items-center justify-content-start">
                                 <div class="logo_container">
-                                    <a href="#">
-                                        <div class="logo_text">Unic<span>at</span></div>
+                                    <a href="index.php">
+                                        <div class="logo_text">Market<span>Prices</span></div>
                                     </a>
                                 </div>
                                 <nav class="main_nav_contaner ml-auto">
@@ -84,7 +84,7 @@
 
                                     <!-- Hamburger -->
 
-                                    <div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+                                    <div class="shopping_cart"><a href="Cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
                                     <div class="hamburger menu_mm">
                                         <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
                                     </div>
@@ -211,31 +211,6 @@
                                 </div>
 
                                 <!-- Course -->
-                                <div class="col-lg-4 course_col">
-                                    <div class="course">
-                                        <div class="course_image"><img src="images/course_5.jpg" alt=""></div>
-                                        <div class="course_body">
-                                            <h3 class="course_title"><a href="course.html">Developing Mobile Apps</a></h3>
-                                            <div class="course_teacher">Ms. Lucius</div>
-                                            <div class="course_text">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
-                                            </div>
-                                        </div>
-                                        <div class="course_footer">
-                                            <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                                                <div class="course_info">
-                                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                                    <span>20 Student</span>
-                                                </div>
-                                                <div class="course_info">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <span>5 Ratings</span>
-                                                </div>
-                                                <div class="course_price ml-auto">Free</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- Course -->
                                 <div class="col-lg-4 course_col">
@@ -259,86 +234,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Course -->
-                                <div class="col-lg-4 course_col">
-                                    <div class="course">
-                                        <div class="course_image"><img src="images/course_7.jpg" alt=""></div>
-                                        <div class="course_body">
-                                            <h3 class="course_title"><a href="course.html">Learn Basic German Fast</a></h3>
-                                            <div class="course_teacher">Mr. John Taylor</div>
-                                            <div class="course_text">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
-                                            </div>
-                                        </div>
-                                        <div class="course_footer">
-                                            <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                                                <div class="course_info">
-                                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                                    <span>20 Student</span>
-                                                </div>
-                                                <div class="course_info">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <span>5 Ratings</span>
-                                                </div>
-                                                <div class="course_price ml-auto">$130</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- Course -->
-                                <div class="col-lg-4 course_col">
-                                    <div class="course">
-                                        <div class="course_image"><img src="images/course_8.jpg" alt=""></div>
-                                        <div class="course_body">
-                                            <h3 class="course_title"><a href="course.html">Business Groud Up</a></h3>
-                                            <div class="course_teacher">Ms. Lucius</div>
-                                            <div class="course_text">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
-                                            </div>
-                                        </div>
-                                        <div class="course_footer">
-                                            <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                                                <div class="course_info">
-                                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                                    <span>20 Student</span>
-                                                </div>
-                                                <div class="course_info">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <span>5 Ratings</span>
-                                                </div>
-                                                <div class="course_price ml-auto">Free</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Course -->
-                                <div class="col-lg-4 course_col">
-                                    <div class="course">
-                                        <div class="course_image"><img src="images/course_9.jpg" alt=""></div>
-                                        <div class="course_body">
-                                            <h3 class="course_title"><a href="course.html">Java Technology</a></h3>
-                                            <div class="course_teacher">Mr. Charles</div>
-                                            <div class="course_text">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
-                                            </div>
-                                        </div>
-                                        <div class="course_footer">
-                                            <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                                                <div class="course_info">
-                                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                                    <span>20 Student</span>
-                                                </div>
-                                                <div class="course_info">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <span>5 Ratings</span>
-                                                </div>
-                                                <div class="course_price ml-auto"><span>$320</span>$220</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
 
