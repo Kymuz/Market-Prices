@@ -201,7 +201,7 @@
                         <?php
                         while($row = mysqli_fetch_array($res)){
                             echo'
-                            <div class="col-lg-4 course_col">
+                            <div class="col-sm-4 course_col">
                                     <div class="course">
                                         <div class="course_image"><img src="'.$row['P_img'].'" alt=""></div>
                                         <div class="course_body">

@@ -910,6 +910,8 @@ section
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	overflow: hidden;
+   left:15%;
+
 }
 
 .Cart_Content{
@@ -918,10 +920,12 @@ section
 }
 .course_image img
 {
-	max-width: 100%;
-    min-width:100%;
-    min-height: 100%;
-    max-height: 136.77px;
+	max-width: 215px;
+    min-width:auto;
+    min-height: 150px;
+    max-height: 160px;
+
+
 }
 .course_body
 {
