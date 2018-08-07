@@ -5,6 +5,7 @@ define('DB_HOST', 'localhost');
 define('DB_Name', 'onlinestore');
 
 $dbc = @mysqli_connect(DB_HOST,DB_user,DB_PASSWORD,DB_Name);
+mysqli_set_charset($dbc, "utf8");
 
 
 /*$query ="SELECT * FROM `order`";

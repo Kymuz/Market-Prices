@@ -887,7 +887,7 @@ section
     height: 100%;
     padding-top: 10%;
     max-width: 100px;
-    max-height: 50px;
+    max-height: 100%;
 }
 .course
 {
@@ -926,6 +926,18 @@ section
     max-height: 160px;
 
 
+}
+.Cart_image{
+    width: 100%;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	overflow: hidden;
+}
+.Cart_image img{
+    max-width: 100px;
+    min-width: 95px;
+    min-height: 100px;
+    max-height: 136.77;
 }
 .course_body
 {

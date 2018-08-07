@@ -192,7 +192,7 @@
                                 <div class="col-lg-12 course_col_cart">
                                     <div class="row course">
 
-                                        <div class="col-lg-2 course_image"><img src="images/snickers.png" alt=""></div>
+                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
 
 
                                         <div class="col-lg-6 Cart_Content" style="margin-top: ">
@@ -214,7 +214,7 @@
                                 <div class="col-lg-12 course_col_cart   ">
                                     <div class="row course">
 
-                                        <div class="col-lg-2 course_image"><img src="images/kitkat.png" alt=""></div>
+                                        <div class="col-lg-2 Cart_image"><img src="images/kitkat.png" alt=""></div>
 
 
                                         <div class="col-lg-6 Cart_Content" style="margin-top: ">
@@ -236,7 +236,7 @@
                                 <div class="col-lg-12 course_col_cart">
                                     <div class="row course">
 
-                                        <div class="col-lg-2 course_image"><img src="images/snickers.png" alt=""></div>
+                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
 
 
                                         <div class="col-lg-6 Cart_Content" style="margin-top: ">
@@ -257,7 +257,7 @@
                                 <div class="col-lg-12 course_col_cart">
                                     <div class="row course">
 
-                                        <div class="col-lg-2 course_image"><img src="images/snickers.png" alt=""></div>
+                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
 
 
                                         <div class="col-lg-6 Cart_Content" style="margin-top: ">
@@ -279,7 +279,7 @@
                                 <div class="col-lg-12 course_col_cart">
                                     <div class="row course">
 
-                                        <div class="col-lg-2 course_image"><img src="images/snickers.png" alt=""></div>
+                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
 
 
                                         <div class="col-lg-6 Cart_Content" style="margin-top: ">
@@ -301,7 +301,7 @@
                                 <div class="col-lg-12 course_col_cart">
                                     <div class="row course">
 
-                                        <div class="col-lg-2 course_image"><img src="images/snickers.png" alt=""></div>
+                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
 
 
                                         <div class="col-lg-6 Cart_Content" style="margin-top: ">

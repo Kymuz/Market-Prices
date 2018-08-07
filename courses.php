@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Courses</title>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Unicat project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,13 +21,14 @@
 <body>
 <?php
     require_once('mysqli_connect.php');
-    $query = "SELECT product.Name, product.P_img, supplier.Name as S_name, product_supplier.Price
+    $query = "SELECT product.Name, product.P_img, product.ID as P_ID, supplier.ID as S_ID, supplier.Name as S_name, product_supplier.Price
                 FROM product, supplier, product_supplier
                 WHERE product.ID = product_supplier.P_ID AND supplier.ID = product_supplier.Sup_ID
                 ORDER BY product_supplier.Price ASC";
     $res=@mysqli_query($dbc,$query);
 
     ?>
+
 
     <div class="super_container">
 
@@ -202,9 +205,12 @@
                         while($row = mysqli_fetch_array($res)){
                             echo'
                             <div class="col-md-4 course_col">
+                            <form action = "CartAdding.php" method = "post">
                                     <div class="course">
                                         <div class="course_image"><img src="'.$row['P_img'].'" alt=""></div>
                                         <div class="course_body">
+                                        <input type = "hidden" name = "P_ID" value = "'.$row['P_ID'].'"/>
+                                        <input type = "hidden" name = "S_ID" value = "'.$row['S_ID'].'"/>
                                             <h3 class="course_title"><a href="course.html">'.$row['Name'].'</a></h3>
                                             <div class="course_teacher">'.$row['S_name'].'</div>
                                             <div class="course_text">
@@ -222,6 +228,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </form>
                                 </div>';
                         }
                         ?>
