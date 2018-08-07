@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Courses</title>
     <meta charset="utf-8">
@@ -17,6 +17,15 @@
 </head>
 
 <body>
+<?php
+    require_once('mysqli_connect.php');
+    $query = "SELECT product.Name, product.P_img, supplier.Name as S_name, product_supplier.Price
+                FROM product, supplier, product_supplier
+                WHERE product.ID = product_supplier.P_ID AND supplier.ID = product_supplier.Sup_ID
+                ORDER BY product_supplier.Price ASC";
+    $res=@mysqli_query($dbc,$query);
+
+    ?>
 
     <div class="super_container">
 
@@ -183,16 +192,19 @@
                                 <button action="submit" class="courses_search_button ml-auto">search now</button>
                             </form>
                         </div>
+
+
                         <div class="courses_container">
                             <div class="row courses_row">
-
-                                <!-- Course -->
-                                <div class="col-lg-4 course_col">
+                        <?php
+                        while($row = mysqli_fetch_array($res)){
+                            echo'
+                            <div class="col-lg-4 course_col">
                                     <div class="course">
-                                        <div class="course_image"><img src="images/snickers.png" alt=""></div>
+                                        <div class="course_image"><img src="'.$row['P_img'].'" alt=""></div>
                                         <div class="course_body">
-                                            <h3 class="course_title"><a href="course.html">snickers</a></h3>
-                                            <div class="course_teacher">Careefour</div>
+                                            <h3 class="course_title"><a href="course.html">'.$row['Name'].'</a></h3>
+                                            <div class="course_teacher">'.$row['S_name'].'</div>
                                             <div class="course_text">
                                                 <p>Lorem ipsum dolor sit amet</p>
                                             </div>
@@ -204,35 +216,16 @@
                                                     <button type="submit" class="home_search_button">Add to Cart</button>
                                                 </div>
 
-                                                <div class="course_price ml-auto">$130</div>
+                                                <div class="course_price ml-auto">'.$row['Price'].'EGP</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>';
+                        }
+                        ?>
+
 
                                 <!-- Course -->
-
-                                <!-- Course -->
-                                <div class="col-lg-4 course_col">
-                                    <div class="course">
-                                        <div class="course_image"><img src="images/kitkat.png" alt=""></div>
-                                        <div class="course_body">
-                                            <h3 class="course_title"><a href="course.html">KitKat</a></h3>
-                                            <div class="course_teacher">Careefour</div>
-                                            <div class="course_text">
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
-                                        </div>
-                                        <div class="course_footer">
-                                            <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                                                <div class="course_info">
-                                                 <button type="submit" class="home_search_button">Add to Cart</button>
-                                                </div>
-                                                <div class="course_price ml-auto">$220</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
 
 

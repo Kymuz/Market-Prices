@@ -930,13 +930,10 @@ section
 	padding-right: 30px;
 	padding-bottom: 23px;
 }
-.course_title
-{
 
-}
 .home_search_button {
     width: 120px;
-    height: 46px;
+    height: 30px;
     background: #14bdee;
     border: none;
     outline: none;
