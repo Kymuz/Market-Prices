@@ -61,9 +61,9 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo_container">
-								<a href="#">
-									<div class="logo_text">Unic<span>at</span></div>
-								</a>
+								 <a href="index.php">
+                                        <div class="logo_text">Market<span>Prices</span></div>
+                                    </a>
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
@@ -78,7 +78,7 @@
 
 								<!-- Hamburger -->
 
-								<div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+								<div class="shopping_cart"><a href="Cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
 								<div class="hamburger menu_mm">
 									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
 								</div>
