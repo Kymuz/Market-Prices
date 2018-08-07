@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 07, 2018 at 12:58 PM
+-- Generation Time: Aug 07, 2018 at 01:32 PM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -96,6 +96,21 @@ CREATE TABLE IF NOT EXISTS `product_supplier` (
   PRIMARY KEY (`P_ID`,`Sup_ID`),
   KEY `Ps_fk_sup` (`Sup_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `product_supplier`
+--
+
+INSERT INTO `product_supplier` (`P_ID`, `Sup_ID`, `Price`, `Availability`) VALUES
+(12649785, 134, 50, 1),
+(12649785, 462, 23, 1),
+(115484877, 139, 20, 1),
+(164988532, 142, 10, 1),
+(271104058, 462, 15, 1),
+(1144848442, 462, 60, 1),
+(1164848442, 139, 12, 1),
+(1849451326, 134, 39, 1),
+(1849451326, 462, 34, 1);
 
 -- --------------------------------------------------------
 
