@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 07, 2018 at 01:03 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1:3306
+-- Generation Time: Aug 07, 2018 at 12:58 PM
+-- Server version: 5.7.21
+-- PHP Version: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,10 +28,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `orders`
 --
 
-CREATE TABLE `orders` (
-  `order_ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_ID` int(11) NOT NULL AUTO_INCREMENT,
   `user_ID` int(11) NOT NULL,
-  `Status` varchar(255) NOT NULL
+  `Status` varchar(255) NOT NULL,
+  PRIMARY KEY (`order_ID`),
+  KEY `User_FK` (`user_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -40,10 +43,14 @@ CREATE TABLE `orders` (
 -- Table structure for table `order_products`
 --
 
-CREATE TABLE `order_products` (
+DROP TABLE IF EXISTS `order_products`;
+CREATE TABLE IF NOT EXISTS `order_products` (
   `order_ID` int(11) NOT NULL,
   `P_ID` int(11) NOT NULL,
-  `Sup_ID` int(11) NOT NULL
+  `Sup_ID` int(11) NOT NULL,
+  PRIMARY KEY (`order_ID`,`P_ID`,`Sup_ID`),
+  KEY `Product_fk` (`P_ID`),
+  KEY `Sup_fk` (`Sup_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -52,11 +59,27 @@ CREATE TABLE `order_products` (
 -- Table structure for table `product`
 --
 
-CREATE TABLE `product` (
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE IF NOT EXISTS `product` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `P_img` varchar(255) NOT NULL
+  `P_img` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`ID`, `Name`, `P_img`) VALUES
+(12649785, 'Rice', 'images\\rice'),
+(115484877, 'Mango Nougat', 'images/mangonougat.jpg'),
+(164988532, 'KitKat', 'images\\kitkat.png'),
+(271104058, 'Snickers', 'images\\snickers.png'),
+(1144848442, 'Dried Banana', 'images\\driedbanana'),
+(1164848442, 'Twix', 'images\\twix.jpg'),
+(1164848784, 'Cheddar Cheese', 'images\\cheddar.jpg'),
+(1849451326, 'Japanese Rice', 'images\\japanrice');
 
 -- --------------------------------------------------------
 
@@ -64,11 +87,14 @@ CREATE TABLE `product` (
 -- Table structure for table `product_supplier`
 --
 
-CREATE TABLE `product_supplier` (
+DROP TABLE IF EXISTS `product_supplier`;
+CREATE TABLE IF NOT EXISTS `product_supplier` (
   `P_ID` int(11) NOT NULL,
   `Sup_ID` int(11) NOT NULL,
   `Price` int(11) NOT NULL,
-  `Availability` tinyint(1) NOT NULL
+  `Availability` tinyint(1) NOT NULL,
+  PRIMARY KEY (`P_ID`,`Sup_ID`),
+  KEY `Ps_fk_sup` (`Sup_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -77,12 +103,25 @@ CREATE TABLE `product_supplier` (
 -- Table structure for table `supplier`
 --
 
-CREATE TABLE `supplier` (
+DROP TABLE IF EXISTS `supplier`;
+CREATE TABLE IF NOT EXISTS `supplier` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `Location` varchar(255) NOT NULL,
-  `Logo` varchar(255) NOT NULL
+  `Logo` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `SUP_UN` (`Name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`ID`, `Name`, `Location`, `Logo`) VALUES
+(134, 'خير زمان', 'Saudi Arabia, Riyadh', 'images/5eer zaman.png'),
+(139, 'Panda', 'Saudi Arabia, Jeddah', 'images\\Panda.png'),
+(142, 'Carrefour', 'France, Paris', 'images\\carrefour.png'),
+(462, 'Souq', 'Egypt, Cairo', 'images\\souq.com.png');
 
 -- --------------------------------------------------------
 
@@ -90,68 +129,15 @@ CREATE TABLE `supplier` (
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
   `ID` int(11) NOT NULL,
   `Email` varchar(40) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `Password` varchar(35) NOT NULL
+  `Password` varchar(35) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `Email` (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_ID`),
-  ADD KEY `User_FK` (`user_ID`);
-
---
--- Indexes for table `order_products`
---
-ALTER TABLE `order_products`
-  ADD PRIMARY KEY (`order_ID`,`P_ID`,`Sup_ID`),
-  ADD KEY `Product_fk` (`P_ID`),
-  ADD KEY `Sup_fk` (`Sup_ID`);
-
---
--- Indexes for table `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `product_supplier`
---
-ALTER TABLE `product_supplier`
-  ADD PRIMARY KEY (`P_ID`,`Sup_ID`),
-  ADD KEY `Ps_fk_sup` (`Sup_ID`);
-
---
--- Indexes for table `supplier`
---
-ALTER TABLE `supplier`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `SUP_UN` (`Name`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Email` (`Email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `order_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
