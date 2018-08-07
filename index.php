@@ -3,6 +3,7 @@
 <?php
 session_start();
 ?>
+
 <html lang="en">
 <head>
     <title>Market Prices</title>
@@ -52,7 +53,8 @@ session_start();
                         if(empty($_SESSION['email'])){
                             echo '<div class = "login_button"><a href = "Login.html">Sign Up/Login</a></div>';       
                             }else{    
-                            echo '<div class = "login_button"><a href = "logout.php">Sign Out</a></div>';
+
+                            echo '<div class = "login_button" ><a href = "logout.php" >Sign out</a></div>';
                             }
                             ?>
                                     </div>
