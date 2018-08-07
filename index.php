@@ -264,7 +264,8 @@ session_start();
         <!-- Counter -->
 
         <div class="counter">
-            <div class="counter_background" style="opacity:0.35; background-image:url(images/leftsupermarko.jpg); "></div>
+            <div class="counter_background" style="opacity:0.7; background-image:url(images/leftsupermarko.jpg); "></div>
+            <div class="blur_bg"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
