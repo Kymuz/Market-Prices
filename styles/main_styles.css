@@ -805,7 +805,9 @@ section {
     font-size: 60px;
     font-weight: 700;
     line-height: 1.2;
-    color: #384158;
+    color: #14bdee   ;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .home_slider_subtitle {
@@ -1141,7 +1143,7 @@ section {
 
 .counter_title {
     font-family: 'Roboto Slab', serif;
-    color: #FFFFFF;
+    color: #76777a;
     font-weight: 700;
 }
 

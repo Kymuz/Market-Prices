@@ -164,7 +164,7 @@ session_start();
 
                     <!-- Home Slider Item -->
                     <div class="owl-item">
-                        <div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(images/supermarko.jpg)"></div>
                         <div class="home_slider_content">
                             <div class="container">
                                 <div class="row">
@@ -264,7 +264,7 @@ session_start();
         <!-- Counter -->
 
         <div class="counter">
-            <div class="counter_background" style="background-image:url(images/counter_background.jpg)"></div>
+            <div class="counter_background" style="opacity:0.35; background-image:url(images/leftsupermarko.jpg); "></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -280,26 +280,26 @@ session_start();
 
                                 <!-- Milestone -->
                                 <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="15">0</div>
-                                    <div class="milestone_text">years</div>
+                                    <div class="milestone_counter" data-end-value="6000">0</div>
+                                    <div class="milestone_text">products</div>
                                 </div>
 
                                 <!-- Milestone -->
                                 <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="120" data-sign-after="k">0</div>
-                                    <div class="milestone_text">years</div>
+                                    <div class="milestone_counter" data-end-value="4" data-sign-after="k">0</div>
+                                    <div class="milestone_text">Hyper Market</div>
                                 </div>
 
                                 <!-- Milestone -->
                                 <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="670" data-sign-after="+">0</div>
-                                    <div class="milestone_text">years</div>
+                                    <div class="milestone_counter" data-end-value="120" data-sign-after="+">0</div>
+                                    <div class="milestone_text">Super Market</div>
                                 </div>
 
                                 <!-- Milestone -->
                                 <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="320">0</div>
-                                    <div class="milestone_text">years</div>
+                                    <div class="milestone_counter" data-end-value="2">0</div>
+                                    <div class="milestone_text">Market </div>
                                 </div>
 
                             </div>
