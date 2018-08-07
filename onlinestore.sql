@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2018 at 12:21 PM
+-- Generation Time: Aug 07, 2018 at 01:03 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -32,7 +32,7 @@ CREATE TABLE `orders` (
   `order_ID` int(11) NOT NULL,
   `user_ID` int(11) NOT NULL,
   `Status` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -44,7 +44,7 @@ CREATE TABLE `order_products` (
   `order_ID` int(11) NOT NULL,
   `P_ID` int(11) NOT NULL,
   `Sup_ID` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE `product` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `P_img` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE `product_supplier` (
   `Sup_ID` int(11) NOT NULL,
   `Price` int(11) NOT NULL,
   `Availability` tinyint(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE `supplier` (
   `Name` varchar(255) NOT NULL,
   `Location` varchar(255) NOT NULL,
   `Logo` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `user` (
   `Email` varchar(40) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Password` varchar(35) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -105,13 +105,16 @@ CREATE TABLE `user` (
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_ID`);
+  ADD PRIMARY KEY (`order_ID`),
+  ADD KEY `User_FK` (`user_ID`);
 
 --
 -- Indexes for table `order_products`
 --
 ALTER TABLE `order_products`
-  ADD PRIMARY KEY (`order_ID`);
+  ADD PRIMARY KEY (`order_ID`,`P_ID`,`Sup_ID`),
+  ADD KEY `Product_fk` (`P_ID`),
+  ADD KEY `Sup_fk` (`Sup_ID`);
 
 --
 -- Indexes for table `product`
@@ -123,7 +126,8 @@ ALTER TABLE `product`
 -- Indexes for table `product_supplier`
 --
 ALTER TABLE `product_supplier`
-  ADD PRIMARY KEY (`P_ID`,`Sup_ID`);
+  ADD PRIMARY KEY (`P_ID`,`Sup_ID`),
+  ADD KEY `Ps_fk_sup` (`Sup_ID`);
 
 --
 -- Indexes for table `supplier`
@@ -148,6 +152,31 @@ ALTER TABLE `user`
 --
 ALTER TABLE `orders`
   MODIFY `order_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `User_FK` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_products`
+--
+ALTER TABLE `order_products`
+  ADD CONSTRAINT `Order_fk` FOREIGN KEY (`order_ID`) REFERENCES `orders` (`order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Product_fk` FOREIGN KEY (`P_ID`) REFERENCES `product` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Sup_fk` FOREIGN KEY (`Sup_ID`) REFERENCES `supplier` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `product_supplier`
+--
+ALTER TABLE `product_supplier`
+  ADD CONSTRAINT `Ps_fk_product` FOREIGN KEY (`P_ID`) REFERENCES `product` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Ps_fk_sup` FOREIGN KEY (`Sup_ID`) REFERENCES `supplier` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -46,7 +46,14 @@
                                         </li>
                                     </ul>
                                     <div class="top_bar_login ml-auto">
-                                        <div class="login_button"><a href="#">Register or Login</a></div>
+                                                           <?php
+                        if(empty($_SESSION['email'])){
+                            echo '<div class = "login_button"><a href = "Login.html">Sign Up/Login</a></div>';
+                            }else{
+
+                            echo '<div class = "login_button" ><a href = "logout.php" >Sign out</a></div>';
+                            }
+                            ?>
                                     </div>
                                 </div>
                             </div>
@@ -68,8 +75,9 @@
                                 </div>
                                 <nav class="main_nav_contaner ml-auto">
                                     <ul class="main_nav">
-                                        <li class="active"><a href="index.html">Home</a></li>
-                                        <li><a href="courses.html">Products</a></li>
+                                           <li class="active"><a href="index.php">Home</a></li>
+
+                                        <li><a href="courses.php">Products</a></li>
                                         <li><a href="blog.html">Categories</a></li>
                                         <li><a href="about.html">About</a></li>
                                         <li><a href="contact.html">Contact</a></li>
