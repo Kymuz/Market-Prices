@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 07, 2018 at 09:27 AM
+-- Generation Time: Aug 07, 2018 at 10:57 AM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -25,6 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `user_ID` int(11) NOT NULL,
+  `Status` varchar(255) NOT NULL,
+  PRIMARY KEY (`order_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_products`
+--
+
+DROP TABLE IF EXISTS `order_products`;
+CREATE TABLE IF NOT EXISTS `order_products` (
+  `order_ID` int(11) NOT NULL,
+  `P_ID` int(11) NOT NULL,
+  `Sup_ID` int(11) NOT NULL,
+  PRIMARY KEY (`order_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -33,6 +61,21 @@ CREATE TABLE IF NOT EXISTS `product` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_supplier`
+--
+
+DROP TABLE IF EXISTS `product_supplier`;
+CREATE TABLE IF NOT EXISTS `product_supplier` (
+  `P_ID` int(11) NOT NULL,
+  `Sup_ID` int(11) NOT NULL,
+  `Price` int(11) NOT NULL,
+  `Availability` tinyint(1) NOT NULL,
+  PRIMARY KEY (`P_ID`,`Sup_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
