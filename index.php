@@ -79,10 +79,9 @@ session_start();
                                 <nav class="main_nav_contaner ml-auto">
                                     <ul class="main_nav">
                                         <li class="active"><a href="index.php">Home</a></li>
-
-                                        <li><a href="courses.php">Products</a></li>
-                                        <li><a href="blog.html">Categories</a></li>
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="Products.php">Products</a></li>
+                                        <li><a href="Categories.php">Categories</a></li>
+                                        <li><a href="about.php">About</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                     <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
@@ -401,7 +400,7 @@ session_start();
                                         <div class="footer_links_container">
                                             <ul>
                                                 <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="about.php">About</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                                 <li><a href="#">Features</a></li>
                                                 <li><a href="courses.html">Courses</a></li>

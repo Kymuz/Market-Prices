@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +21,14 @@
 </head>
 
 <body>
+    <?php
+    require_once('mysqli_connect.php');
+    $query = "SELECT product.Name,product.P_img,product_supplier.Price,supplier.Logo
+                FROM product_supplier,product,orders,user,supplier
+                WHERE product.ID = product_supplier.P_ID AND product_supplier.P_ID = orders.Product_id AND user.ID = orders.user_ID AND supplier.ID =product_supplier.Sup_ID AND product_supplier.Sup_ID = orders.Supplier_id AND user.ID =".$_SESSION['userID'];
+
+   $res=@mysqli_query($dbc,$query);
+    ?>
 
     <div class="super_container">
 
@@ -77,9 +88,9 @@
                                     <ul class="main_nav">
                                            <li class="active"><a href="index.php">Home</a></li>
 
-                                        <li><a href="courses.php">Products</a></li>
-                                        <li><a href="blog.html">Categories</a></li>
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="Products.php">Products</a></li>
+                                        <li><a href="Categories.php">Categories</a></li>
+                                        <li><a href="about.php">About</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                     <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
@@ -185,136 +196,40 @@
                                 <button action="submit" class="courses_search_button ml-auto">search now</button>
                             </form>
                         </div>
+
                         <div class="courses_container">
-                            <div class="row courses_row">
+
+                            <?php
+
+
+                            if(isset($_SESSION['userID'])){
+                            while($row = mysqli_fetch_array($res)){
+
+                            echo '<div class="row courses_row">
 
                                 <!-- Course -->
-                                <div class="col-lg-12 course_col_cart">
+                                <div class="col-md-12 course_col_cart">
                                     <div class="row course">
 
-                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
+                                        <div class="col-md-2 Cart_image"><img src="'.$row['P_img'].'" alt=""></div>
 
 
-                                        <div class="col-lg-6 Cart_Content" style="margin-top: ">
-                                            <h3 class=""><a href="course.html">snickers </a></h3>
+                                        <div class="col-md-6 Cart_Content" style="margin-top: ">
+                                            <h3 class=""><a href="ProductPage.php">'.$row['Name'].' </a></h3>
                                         </div>
-                                        <div class="col-lg-2 course_price Cart_Content">$130</div>
-                                        <div class="col-lg-2 Cart_Content">
-                                            <div class=""><img src="images/carrefour.png" alt="" class="cart_imgs"></div>
+                                        <div class="col-md-2 course_price Cart_Content">'.$row['Price'].' EGP</div>
+                                        <div class="col-md  -2 Cart_Content">
+                                            <div class=""><img src="'.$row['Logo'].'" alt="" class="cart_imgs"></div>
                                         </div>
 
                                     </div>
                                 </div>
-                            </div>
-
+                            </div>';
+                            }
+                            }
+                            ?>
                             <!-- Course -->
-                            <div class="row courses_row">
 
-                                <!-- Course -->
-                                <div class="col-lg-12 course_col_cart   ">
-                                    <div class="row course">
-
-                                        <div class="col-lg-2 Cart_image"><img src="images/kitkat.png" alt=""></div>
-
-
-                                        <div class="col-lg-6 Cart_Content" style="margin-top: ">
-                                            <h3 class=""><a href="course.html">snickers</a></h3>
-                                        </div>
-                                        <div class="col-lg-2 course_price Cart_Content">$100</div>
-                                        <div class="col-lg-2 Cart_Content">
-                                            <div class=""><img src="images/Panda.png" class="cart_imgs"></div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Course -->
-                            <div class="row courses_row">
-
-                                <!-- Course -->
-                                <div class="col-lg-12 course_col_cart">
-                                    <div class="row course">
-
-                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
-
-
-                                        <div class="col-lg-6 Cart_Content" style="margin-top: ">
-                                            <h3 class=""><a href="course.html">snickers</a></h3>
-                                        </div>
-                                        <div class="col-lg-2 course_price Cart_Content">$120</div>
-                                        <div class="col-lg-2 Cart_Content">
-                                            <div class=""><img src="images/carrefour.png" alt="" class="cart_imgs"></div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row courses_row">
-
-                                <!-- Course -->
-                                <div class="col-lg-12 course_col_cart">
-                                    <div class="row course">
-
-                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
-
-
-                                        <div class="col-lg-6 Cart_Content" style="margin-top: ">
-                                            <h3 class=""><a href="course.html">snickers</a></h3>
-                                        </div>
-                                        <div class="col-lg-2 course_price Cart_Content">$119</div>
-                                        <div class="col-lg-2 Cart_Content">
-                                            <div class=""><img src="images/carrefour.png" alt="" class="cart_imgs"></div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Course -->
-                            <div class="row courses_row">
-
-                                <!-- Course -->
-                                <div class="col-lg-12 course_col_cart">
-                                    <div class="row course">
-
-                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
-
-
-                                        <div class="col-lg-6 Cart_Content" style="margin-top: ">
-                                            <h3 class=""><a href="course.html">snickers</a></h3>
-                                        </div>
-                                        <div class="col-lg-2 course_price Cart_Content">$115</div>
-                                        <div class="col-lg-2 Cart_Content">
-                                            <div class=""><img src="images/carrefour.png" alt="" class="cart_imgs"></div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Course -->
-                            <div class="row courses_row">
-
-                                <!-- Course -->
-                                <div class="col-lg-12 course_col_cart">
-                                    <div class="row course">
-
-                                        <div class="col-lg-2 Cart_image"><img src="images/snickers.png" alt=""></div>
-
-
-                                        <div class="col-lg-6 Cart_Content" style="margin-top: ">
-                                            <h3 class=""><a href="course.html">snickers</a></h3>
-                                        </div>
-                                        <div class="col-lg-2 course_price Cart_Content">$130</div>
-                                        <div class="col-lg-2 Cart_Content">
-                                            <div class=""><img src="images/carrefour.png" alt="" class="cart_imgs"></div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>>
 
                         </div>
 
@@ -400,7 +315,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
     <!-- Newsletter -->
 
@@ -489,7 +404,7 @@
                                     <div class="footer_links_container">
                                         <ul>
                                             <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="about.php">About</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                             <li><a href="#">Features</a></li>
                                             <li><a href="courses.html">Courses</a></li>

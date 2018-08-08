@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +59,7 @@
                                         </li>
                                     </ul>
                                     <div class="top_bar_login ml-auto">
-                                                        <?php
+                        <?php
                         if(empty($_SESSION['email'])){
                             echo '<div class = "login_button"><a href = "Login.html">Sign Up/Login</a></div>';
                             }else{
@@ -87,9 +89,9 @@
                                 <nav class="main_nav_contaner ml-auto">
                                     <ul class="main_nav">
                                         <li class="active"><a href="index.php">Home</a></li>
-                                        <li><a href="courses.php">Products</a></li>
-                                        <li><a href="blog.html">Categories</a></li>
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="Products.php">Products</a></li>
+                                        <li><a href="Categories.php">Categories</a></li>
+                                        <li><a href="about.php">About</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                     <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
@@ -211,7 +213,7 @@
                                         <div class="course_body">
                                         <input type = "hidden" name = "P_ID" value = "'.$row['P_ID'].'"/>
                                         <input type = "hidden" name = "S_ID" value = "'.$row['S_ID'].'"/>
-                                            <h3 class="course_title"><a href="course.html">'.$row['Name'].'</a></h3>
+                                            <h3 class="course_title"><a href="ProductPage.php">'.$row['Name'].'</a></h3>
                                             <div class="course_teacher">'.$row['S_name'].'</div>
                                             <div class="course_text">
                                                 <p>Lorem ipsum dolor sit amet</p>
@@ -396,7 +398,7 @@
                                         <div class="footer_links_container">
                                             <ul>
                                                 <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="about.php">About</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                                 <li><a href="#">Features</a></li>
                                                 <li><a href="courses.html">Courses</a></li>
