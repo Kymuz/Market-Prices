@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Aug 07, 2018 at 01:32 PM
--- Server version: 5.7.21
--- PHP Version: 5.6.35
+-- Host: 127.0.0.1
+-- Generation Time: Aug 08, 2018 at 05:09 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,30 +28,27 @@ SET time_zone = "+00:00";
 -- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `order_ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orders` (
   `user_ID` int(11) NOT NULL,
   `Status` varchar(255) NOT NULL,
-  PRIMARY KEY (`order_ID`),
-  KEY `User_FK` (`user_ID`)
+  `Product_id` int(11) NOT NULL,
+  `Supplier_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `order_products`
+-- Dumping data for table `orders`
 --
 
-DROP TABLE IF EXISTS `order_products`;
-CREATE TABLE IF NOT EXISTS `order_products` (
-  `order_ID` int(11) NOT NULL,
-  `P_ID` int(11) NOT NULL,
-  `Sup_ID` int(11) NOT NULL,
-  PRIMARY KEY (`order_ID`,`P_ID`,`Sup_ID`),
-  KEY `Product_fk` (`P_ID`),
-  KEY `Sup_fk` (`Sup_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `orders` (`user_ID`, `Status`, `Product_id`, `Supplier_id`) VALUES
+(1, 'Active', 12649785, 462),
+(2, 'Active', 115484877, 139),
+(2, 'Active', 164988532, 142),
+(2, 'Active', 1164848442, 139),
+(2, 'Active', 271104058, 462),
+(2, 'Active', 12649785, 462),
+(2, 'Active', 1849451326, 462),
+(2, 'Active', 1144848442, 462),
+(2, 'Active', 271104058, 462);
 
 -- --------------------------------------------------------
 
@@ -59,12 +56,10 @@ CREATE TABLE IF NOT EXISTS `order_products` (
 -- Table structure for table `product`
 --
 
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
+CREATE TABLE `product` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `P_img` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`)
+  `P_img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -72,14 +67,14 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`ID`, `Name`, `P_img`) VALUES
-(12649785, 'Rice', 'images\\rice'),
-(115484877, 'Mango Nougat', 'images/mangonougat.jpg'),
+(12649785, 'Rice', 'images\\rice.jpg'),
+(115484877, 'Rifai Nuts', 'images/Nuts.jpg'),
 (164988532, 'KitKat', 'images\\kitkat.png'),
 (271104058, 'Snickers', 'images\\snickers.png'),
-(1144848442, 'Dried Banana', 'images\\driedbanana'),
+(1144848442, 'جبنة دومتي', 'images\\Domty.jpeg'),
 (1164848442, 'Twix', 'images\\twix.jpg'),
 (1164848784, 'Cheddar Cheese', 'images\\cheddar.jpg'),
-(1849451326, 'Japanese Rice', 'images\\japanrice');
+(1849451326, 'Japanese Rice', 'images\\japanrice.jpg');
 
 -- --------------------------------------------------------
 
@@ -87,14 +82,11 @@ INSERT INTO `product` (`ID`, `Name`, `P_img`) VALUES
 -- Table structure for table `product_supplier`
 --
 
-DROP TABLE IF EXISTS `product_supplier`;
-CREATE TABLE IF NOT EXISTS `product_supplier` (
+CREATE TABLE `product_supplier` (
   `P_ID` int(11) NOT NULL,
   `Sup_ID` int(11) NOT NULL,
   `Price` int(11) NOT NULL,
-  `Availability` tinyint(1) NOT NULL,
-  PRIMARY KEY (`P_ID`,`Sup_ID`),
-  KEY `Ps_fk_sup` (`Sup_ID`)
+  `Availability` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -102,14 +94,12 @@ CREATE TABLE IF NOT EXISTS `product_supplier` (
 --
 
 INSERT INTO `product_supplier` (`P_ID`, `Sup_ID`, `Price`, `Availability`) VALUES
-(12649785, 134, 50, 1),
 (12649785, 462, 23, 1),
 (115484877, 139, 20, 1),
 (164988532, 142, 10, 1),
 (271104058, 462, 15, 1),
 (1144848442, 462, 60, 1),
 (1164848442, 139, 12, 1),
-(1849451326, 134, 39, 1),
 (1849451326, 462, 34, 1);
 
 -- --------------------------------------------------------
@@ -118,14 +108,11 @@ INSERT INTO `product_supplier` (`P_ID`, `Sup_ID`, `Price`, `Availability`) VALUE
 -- Table structure for table `supplier`
 --
 
-DROP TABLE IF EXISTS `supplier`;
-CREATE TABLE IF NOT EXISTS `supplier` (
+CREATE TABLE `supplier` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `Location` varchar(255) NOT NULL,
-  `Logo` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `SUP_UN` (`Name`)
+  `Logo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -133,7 +120,6 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 --
 
 INSERT INTO `supplier` (`ID`, `Name`, `Location`, `Logo`) VALUES
-(134, 'خير زمان', 'Saudi Arabia, Riyadh', 'images/5eer zaman.png'),
 (139, 'Panda', 'Saudi Arabia, Jeddah', 'images\\Panda.png'),
 (142, 'Carrefour', 'France, Paris', 'images\\carrefour.png'),
 (462, 'Souq', 'Egypt, Cairo', 'images\\souq.com.png');
@@ -144,15 +130,59 @@ INSERT INTO `supplier` (`ID`, `Name`, `Location`, `Logo`) VALUES
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
   `Email` varchar(40) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `Password` varchar(35) NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `Email` (`Email`)
+  `Password` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`ID`, `Email`, `Name`, `Password`) VALUES
+(1, 'kmba501@buee.edu.eg', 'Karim', '333'),
+(2, 'Amr@gmail.com', 'Amr Morsy', '222');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD KEY `User_FK` (`user_ID`),
+  ADD KEY `Product_id` (`Product_id`),
+  ADD KEY `Supplier_id` (`Supplier_id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `product_supplier`
+--
+ALTER TABLE `product_supplier`
+  ADD PRIMARY KEY (`P_ID`,`Sup_ID`),
+  ADD KEY `Ps_fk_sup` (`Sup_ID`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `SUP_UN` (`Name`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- Constraints for dumped tables
@@ -162,15 +192,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `User_FK` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `order_products`
---
-ALTER TABLE `order_products`
-  ADD CONSTRAINT `Order_fk` FOREIGN KEY (`order_ID`) REFERENCES `orders` (`order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Product_fk` FOREIGN KEY (`P_ID`) REFERENCES `product` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Sup_fk` FOREIGN KEY (`Sup_ID`) REFERENCES `supplier` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `User_FK` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`Product_id`) REFERENCES `product_supplier` (`P_ID`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`Supplier_id`) REFERENCES `product_supplier` (`Sup_ID`);
 
 --
 -- Constraints for table `product_supplier`
