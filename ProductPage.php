@@ -13,17 +13,17 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/course.css">
-<!--<link rel="stylesheet" type="text/css" href="styles/courses.css">-->
+<link rel="stylesheet" type="text/css" href="styles/courses.css">
 <link rel="stylesheet" type="text/css" href="styles/course_responsive.css">
 </head>
 <body>
 
 <?php
     require_once('mysqli_connect.php');
-    $query = "SELECT product.Name, product.P_img FROM product WHERE product.ID=".(int)$_GET['id'];
+    $query = "SELECT product.Name, product.P_img FROM product WHERE product.ID=".$_GET['id'];
     $query1="SELECT supplier.Logo,product_supplier.Price
                 FROM product,product_supplier,supplier
-                WHERE product.ID=product_supplier.P_ID AND product_supplier.Sup_ID=supplier.ID AND product.ID =".(int)$_GET['id']."
+                WHERE product.ID=product_supplier.P_ID AND product_supplier.Sup_ID=supplier.ID AND product.ID =".$_GET['id']."
                 ORDER BY product_supplier.Price ASC" ;
      $res=@mysqli_query($dbc,$query);
      $res1=@mysqli_query($dbc,$query1);
@@ -180,7 +180,6 @@
 				<div class="col-lg-8">
 
 					<div class="course_container">
-						<div class="course_title">Software Training</div>
 						<div class="course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
 
 							<!-- Course Info Item -->
@@ -191,8 +190,8 @@
 
 							<!-- Course Info Item -->
 							<div class="course_info_item">
-								<div class="course_info_title">Reviews:</div>
-								<div class="rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+								<img src="<?php echo $row1['Logo']; ?>" alt="" class="cart_imgs" style="padding-top:0;">
+
 							</div>
 
 							<!-- Course Info Item -->
@@ -204,7 +203,7 @@
 						</div>
 
 						<!-- Course Image -->
-						<div class="course_image"><img src="<?php echo $row['P_img'] ?>" alt=""></div>
+						<div class="Product_image"><img src="<?php echo $row['P_img'] ?>" alt=""></div>
 
 						<!-- Course Tabs -->
 
@@ -215,7 +214,7 @@
 
                                 <!-- Course -->
                                 <div class="col-md-12 course_col_cart">
-                                    <div class="row course">
+                                    <div class="row Product_adjust">
 
                                         <div class="col-md-2 Cart_image"><img src="'.$row['P_img'].'" alt=""></div>
 
@@ -245,41 +244,35 @@
 
 						<!-- Feature -->
 						<div class="sidebar_section">
-							<div class="sidebar_section_title">Course Feature</div>
+							<div class="sidebar_section_title">Nutrition information</div>
 							<div class="sidebar_feature">
-								<div class="course_price">$180</div>
+								<div class="course_price"></div>
 
 								<!-- Features -->
 								<div class="feature_list">
 
 									<!-- Feature -->
 									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Duration:</span></div>
-										<div class="feature_text ml-auto">2 weeks</div>
+										<div class="feature_title"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Protein:</span></div>
+										<div class="feature_text ml-auto">7.27(G)</div>
 									</div>
 
 									<!-- Feature -->
 									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Lectures:</span></div>
-										<div class="feature_text ml-auto">10</div>
+										<div class="feature_title"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Fats:</span></div>
+										<div class="feature_text ml-auto">20.81(G)</div>
 									</div>
 
 									<!-- Feature -->
 									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span>Lectures:</span></div>
-										<div class="feature_text ml-auto">6</div>
+										<div class="feature_title"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span>Carbohydrates(G)</span></div>
+										<div class="feature_text ml-auto">32.21(G)</div>
 									</div>
 
 									<!-- Feature -->
 									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Lectures:</span></div>
-										<div class="feature_text ml-auto">Yes</div>
-									</div>
-
-									<!-- Feature -->
-									<div class="feature d-flex flex-row align-items-center justify-content-start">
-										<div class="feature_title"><i class="fa fa-users" aria-hidden="true"></i><span>Lectures:</span></div>
-										<div class="feature_text ml-auto">35</div>
+										<div class="feature_title"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Energy:</span></div>
+										<div class="feature_text ml-auto">317(KCAL)</div>
 									</div>
 
 								</div>
@@ -287,73 +280,9 @@
 						</div>
 
 						<!-- Feature -->
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">Teacher</div>
-							<div class="sidebar_teacher">
-								<div class="teacher_title_container d-flex flex-row align-items-center justify-content-start">
-									<div class="teacher_image"><img src="images/teacher.jpg" alt=""></div>
-									<div class="teacher_title">
-										<div class="teacher_name"><a href="#">Jacke Masito</a></div>
-										<div class="teacher_position">Marketing & Management</div>
-									</div>
-								</div>
-								<div class="teacher_meta_container">
-									<!-- Teacher Rating -->
-									<div class="teacher_meta d-flex flex-row align-items-center justify-content-start">
-										<div class="teacher_meta_title">Average Rating:</div>
-										<div class="teacher_meta_text ml-auto"><span>4.7</span><i class="fa fa-star" aria-hidden="true"></i></div>
-									</div>
-									<!-- Teacher Review -->
-									<div class="teacher_meta d-flex flex-row align-items-center justify-content-start">
-										<div class="teacher_meta_title">Review:</div>
-										<div class="teacher_meta_text ml-auto"><span>12k</span><i class="fa fa-comment" aria-hidden="true"></i></div>
-									</div>
-									<!-- Teacher Quizzes -->
-									<div class="teacher_meta d-flex flex-row align-items-center justify-content-start">
-										<div class="teacher_meta_title">Quizzes:</div>
-										<div class="teacher_meta_text ml-auto"><span>600</span><i class="fa fa-user" aria-hidden="true"></i></div>
-									</div>
-								</div>
-								<div class="teacher_info">
-									<p>Hi! I am Masion, I’m a marketing & management  eros pulvinar velit laoreet, sit amet egestas erat dignissim. Sed quis rutrum tellus, sit amet viverra felis. Cras sagittis sem sit amet urna feugiat rutrum nam nulla ipsum.</p>
-								</div>
-							</div>
-						</div>
 
 						<!-- Latest Course -->
-						<div class="sidebar_section">
-							<div class="sidebar_section_title">Latest Courses</div>
-							<div class="sidebar_latest">
 
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_1.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="ProductPage.php">How to Design a Logo a Beginners Course</a></div>
-										<div class="latest_price">Free</div>
-									</div>
-								</div>
-
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_2.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="ProductPage.php">Photography for Beginners Masterclass</a></div>
-										<div class="latest_price">$170</div>
-									</div>
-								</div>
-
-								<!-- Latest Course -->
-								<div class="latest d-flex flex-row align-items-start justify-content-start">
-									<div class="latest_image"><div><img src="images/latest_3.jpg" alt=""></div></div>
-									<div class="latest_content">
-										<div class="latest_title"><a href="ProductPage.php">The Secrets of Body Language</a></div>
-										<div class="latest_price">$220</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
 
 					</div>
 				</div>
