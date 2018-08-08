@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Course Details</title>
+    <title>Product Details</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Unicat project">
@@ -169,8 +169,8 @@
                                 <div class="breadcrumbs">
                                     <ul>
                                         <li><a href="index.html">Home</a></li>
-                                        <li><a href="courses.html">Courses</a></li>
-                                        <li>Course Details</li>
+                                        <li><a href="courses.html">Products</a></li>
+                                        <li>Product Details</li>
                                     </ul>
                                 </div>
                             </div>
@@ -347,11 +347,11 @@
                                         <div class="footer_section footer_about">
                                             <div class="footer_logo_container">
                                                 <a href="#">
-                                                    <div class="footer_logo_text">Unic<span>at</span></div>
+                                                    <div class="footer_logo_text">Market<span>Prices</span></div>
                                                 </a>
                                             </div>
                                             <div class="footer_about_text">
-                                                <p>description</p>
+                                                <p>The best website to save money by minimizing the shopping cost </p>
                                             </div>
                                             <div class="footer_social">
                                                 <ul>
@@ -372,9 +372,9 @@
                                             <div class="footer_title">Contact Us</div>
                                             <div class="footer_contact_info">
                                                 <ul>
-                                                    <li>Email: Info.deercreative@gmail.com</li>
-                                                    <li>Phone: +(88) 111 555 666</li>
-                                                    <li>40 Baria Sreet 133/2 New York City, United States</li>
+                                                    <li>Email: amr905@gmail.com</li>
+                                                    <li>Phone: +(20) 111 820 8540</li>
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -388,14 +388,13 @@
                                             <div class="footer_title">Contact Us</div>
                                             <div class="footer_links_container">
                                                 <ul>
-                                                    <li><a href="index.html">Home</a></li>
-                                                    <li><a href="about.php">About</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
-                                                    <li><a href="#">Features</a></li>
-                                                    <li><a href="courses.html">Courses</a></li>
-                                                    <li><a href="#">Events</a></li>
-                                                    <li><a href="#">Gallery</a></li>
-                                                    <li><a href="#">FAQs</a></li>
+                                                    <li><a href="#">Home</a></li>
+                                                    <li><a href="#">About</a></li>
+                                                    <li><a href="#">Contact</a></li>
+
+                                                    <li><a href="#">Products</a></li>
+                                                    <li><a href="#">Markets</a></li>
+
                                                 </ul>
                                             </div>
                                         </div>

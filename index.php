@@ -363,7 +363,7 @@ session_start();
                                             </a>
                                         </div>
                                         <div class="footer_about_text">
-                                            <p>The best website to save money from shopping </p>
+                                            <p>The best website to save money by minimizing the shopping cost </p>
                                         </div>
                                         <div class="footer_social">
                                             <ul>
@@ -386,7 +386,7 @@ session_start();
                                             <ul>
                                                 <li>Email: amr905@gmail.com</li>
                                                 <li>Phone: +(20) 111 820 8540</li>
-                                                <li>cairo - Nasr city-</li>
+
                                             </ul>
                                         </div>
                                     </div>
@@ -400,14 +400,13 @@ session_start();
                                         <div class="footer_title">Contact Us</div>
                                         <div class="footer_links_container">
                                             <ul>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.php">About</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="#">Features</a></li>
-                                                <li><a href="courses.html">Courses</a></li>
-                                                <li><a href="#">Events</a></li>
-                                                <li><a href="#">Gallery</a></li>
-                                                <li><a href="#">FAQs</a></li>
+                                                <li><a href="#">Home</a></li>
+                                                <li><a href="#">About</a></li>
+                                                <li><a href="#">Contact</a></li>
+
+                                                <li><a href="#">Products</a></li>
+                                                <li><a href="#">Markets</a></li>
+
                                             </ul>
                                         </div>
                                     </div>
