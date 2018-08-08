@@ -265,15 +265,15 @@ session_start();
                         <div class="sidebar">
 
                             <!-- Categories -->
-                            <div class="sidebar_section">
+                         <div class="sidebar_section">
                                 <div class="sidebar_section_title">Categories</div>
                                 <div class="sidebar_categories">
                                     <ul>
-                                        <li><a href="#">Art & Design</a></li>
-                                        <li><a href="#">Business</a></li>
-                                        <li><a href="#">IT & Software</a></li>
-                                        <li><a href="#">Languages</a></li>
-                                        <li><a href="#">Programming</a></li>
+                                        <li><a href="#">Frozen Foods</a></li>
+                                        <li><a href="#">vegetables</a></li>
+                                        <li><a href="#">lunch meat</a></li>
+                                        <li><a href="#">liquid/detergent.</a></li>
+                                        <li><a href="#">Paper Goods</a></li>
                                     </ul>
                                 </div>
                             </div>
