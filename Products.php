@@ -27,6 +27,7 @@ session_start();
                 FROM product, supplier, product_supplier
                 WHERE product.ID = product_supplier.P_ID AND supplier.ID = product_supplier.Sup_ID
                 ORDER BY product_supplier.Price ASC";
+
     $res=@mysqli_query($dbc,$query);
 
     ?>
@@ -213,7 +214,7 @@ session_start();
                                         <div class="course_body">
                                         <input type = "hidden" name = "P_ID" value = "'.$row['P_ID'].'"/>
                                         <input type = "hidden" name = "S_ID" value = "'.$row['S_ID'].'"/>
-                                            <h3 class="course_title"><a href="ProductPage.php">'.$row['Name'].'</a></h3>
+                                            <h3 class="course_title"><a href="ProductPage.php?id='.$row['P_ID'].'">'.$row['Name'].'</a></h3>
                                             <div class="course_teacher">'.$row['S_name'].'</div>
                                             <div class="course_text">
                                                 <p>Lorem ipsum dolor sit amet</p>
