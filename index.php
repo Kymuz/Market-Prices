@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<!-- kimo-->
+
 <?php
 session_start();
 ?>
 
 <html lang="en">
+
 <head>
     <title>Market Prices</title>
     <meta charset="utf-8">
@@ -89,7 +90,7 @@ session_start();
                                     <!-- Hamburger -->
                                     <div class="shopping_cart"> <a href="Cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
                                     <div class="hamburger menu_mm">
-                                       <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                                        <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
                                     </div>
 
                                 </nav>
@@ -286,13 +287,13 @@ session_start();
 
                                 <!-- Milestone -->
                                 <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="4" data-sign-after="k">0</div>
+                                    <div class="milestone_counter" data-end-value="4" data-sign-after="">0</div>
                                     <div class="milestone_text">Hyper Market</div>
                                 </div>
 
                                 <!-- Milestone -->
                                 <div class="milestone">
-                                    <div class="milestone_counter" data-end-value="120" data-sign-after="+">0</div>
+                                    <div class="milestone_counter" data-end-value="120" data-sign-after="">0</div>
                                     <div class="milestone_text">Super Market</div>
                                 </div>
 
@@ -321,7 +322,7 @@ session_start();
 								<option>maadi</option>
 								<option>shoubra</option>
 							</select>
-                               <input type="text" class="counter_input" placeholder="Email:" required="required">
+                                <input type="text" class="counter_input" placeholder="Email:" required="required">
                                 <input type="password" class="counter_input" placeholder="Password:" required="required">
                                 <button type="submit" class="counter_form_button">submit now</button>
                             </form>
@@ -439,6 +440,7 @@ session_start();
                                 Copyright &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
+
                                 </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </div>
@@ -464,9 +466,10 @@ session_start();
     <script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
     <script src="plugins/greensock/animation.gsap.min.js"></script>
     <script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="plugins/easing/easing.js"></script>
     <script src="plugins/parallax-js-master/parallax.min.js"></script>
     <script src="js/custom.js"></script>
 </body>
+
 </html>

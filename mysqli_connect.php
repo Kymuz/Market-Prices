@@ -1,8 +1,8 @@
 <?php
-define('DB_user', 'root');
-define('DB_PASSWORD', '');
-define('DB_HOST', 'localhost');
-define('DB_Name', 'onlinestore');
+define('DB_user', 'eb2a_22532254');
+define('DB_PASSWORD', '111111');
+define('DB_HOST', 'sql210.eb2a.com');
+define('DB_Name', 'eb2a_22532254_onlinestore');
 
 $dbc = @mysqli_connect(DB_HOST,DB_user,DB_PASSWORD,DB_Name);
 mysqli_set_charset($dbc, "utf8");
